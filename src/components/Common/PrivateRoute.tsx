@@ -11,11 +11,7 @@ const PrivateRoute = (props: RouteProps) => {
   const isLogged = Boolean(localStorage.getItem("accessToken"));
   if (!isLogged) return <Redirect to="/" />;
 
-  return (
-    <Route {...props}>
-      <Dashboard />
-    </Route>
-  );
+  return <Route {...props}></Route>;
 };
 
 export default PrivateRoute;
