@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect, Route, RouteProps } from "react-router";
+import Dashboard from "../../features/Dashboard";
 
 export interface PrivateRouteProps {}
 
@@ -10,7 +11,11 @@ const PrivateRoute = (props: RouteProps) => {
   const isLogged = Boolean(localStorage.getItem("accessToken"));
   if (!isLogged) return <Redirect to="/" />;
 
-  return <Route {...props}>private route </Route>;
+  return (
+    <Route {...props}>
+      <Dashboard />
+    </Route>
+  );
 };
 
 export default PrivateRoute;
