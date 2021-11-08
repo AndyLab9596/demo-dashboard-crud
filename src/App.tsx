@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router";
 import "./App.css";
 import { NotFound } from "./components/Common";
+import PrivateRoute from "./components/Common/PrivateRoute";
 import AdminLayout from "./components/Layout/Admin";
 import LoginPage from "./features/Auth/pages/LoginPage";
 
@@ -12,9 +13,9 @@ function App() {
         <Route path="/" exact>
           <LoginPage />
         </Route>
-        <Route path="/admin">
+        <PrivateRoute path="/admin">
           <AdminLayout />
-        </Route>
+        </PrivateRoute>
         <Route>
           <NotFound />
         </Route>
